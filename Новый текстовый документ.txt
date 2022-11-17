@@ -1,0 +1,97 @@
+#include <stdio.h>
+#include <locale.h>
+#include <math.h>
+#include <stdlib.h>
+
+#define N 10
+#define K 100
+#define sss 14
+
+void main()
+{
+	double c4 = 0;
+	double o = 0;
+	double sr2 = 0;
+	float M[K];
+	float J[sss];
+	float F;
+	float temp;
+	float A[10];
+	int i;
+	float x = 2;
+	float zz = 0;
+	float xx = 0;
+	int k1 = 0;
+	int k = 0;
+	int k2 = 0;
+	int n;
+	int ll = 0;
+	double ff = 0;
+
+
+	setlocale(LC_ALL, "RUS");
+	 
+	puts("Задание 1****************************************");
+
+	for (i = 0; i < N; i++)
+	{
+		printf("a[%d]=", i+1);
+		scanf("%f", &temp);
+		A[i] = temp;
+		if (A[i] == 0) {
+			A[i] = i;
+		}
+	}
+
+	for (i = 0; i < N; i++) {
+		printf(" %f   %f", (float)(i), A[i]);
+		printf("\n");
+	}
+
+	
+	for (i = 0; i < N; i++) {
+		c4 += A[i];
+	}
+	o = c4 / 10;
+	printf("Ср.арф = %lf\n", o);
+
+	puts("{Задание 2****************************************");
+
+	puts("Шаг");
+	scanf("%d", &F);
+
+	for (int j = 0; j < K ; j++) {
+		M[j] = fabs(log10(x)) - pow((x-2),2);
+		if (M[(int)x] >= 0) {
+			zz += M[(int)x];
+			k1 += 1;
+		}
+		else {
+			xx += M[(int)x];
+			k2 += 1;
+		}
+		x += F;
+	}
+
+	sr2 = zz / 100;
+	printf("кол-во положительных = %d чисел, кол-во отрицательных чисел = %d, имя массива: M, ср.знач = %lf\n",k1,k2, sr2);
+
+	puts("Задание 3***********************************");
+
+
+	for (int q = 0; q<sss ;q++) {
+		J[q] = rand();
+		ll += J[q];
+	}
+	ff = ll / sss;
+	
+	for (int q = 0; q < sss; q++) {
+		if (J[q] < ff) {
+			k += 1;
+		}
+	}
+
+	printf("кол-во чисел меньших ср.арф знач %d",k);
+
+	return 0;
+}
